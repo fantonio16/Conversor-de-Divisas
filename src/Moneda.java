@@ -5,14 +5,15 @@ public final class Moneda {
     private final String target_code;
     private final double conversion_rate;
 
-    public Moneda(String base_code,
-                  String target_code,
-                  double conversion_rate
-    ) {
+    public Moneda(String base_code, String target_code, double conversion_rate) {
+        if (base_code == null || target_code == null) {
+            throw new IllegalArgumentException("Base code and target code cannot be null");
+        }
         this.base_code = base_code;
         this.target_code = target_code;
         this.conversion_rate = conversion_rate;
     }
+
 
     public String base_code() {
         return base_code;
@@ -23,6 +24,10 @@ public final class Moneda {
     }
 
     public double conversion_rate() {
+        if (conversion_rate <= 0) {
+            throw new IllegalArgumentException("Conversion rate must be positive");
+
+        }
         return conversion_rate;
     }
 
@@ -43,10 +48,8 @@ public final class Moneda {
 
     @Override
     public String toString() {
-        return "Moneda[" +
-                "base_code=" + base_code + ", " +
-                "target_code=" + target_code + ", " +
-                "conversion_rate=" + conversion_rate + ']';
+        return "1 " + base_code + " = " + conversion_rate + " " + target_code;
     }
+
 
 }

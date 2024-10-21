@@ -21,25 +21,25 @@ public class Principal {
 
             switch (opcion) {
                 case 1:
-                    ConvertirMoneda.convertir(monedaBase: "USD", monedaTarget: "ARS" , consulta, lectura);
+                    ConvertirMoneda.convertir( "USD", "ARS" , consulta, lectura);
                     break;
                 case 2:
-                    ConvertirMoneda.convertir(monedaBase:  "ARS", monedaTarget: "USD" , consulta, lectura);
+                    ConvertirMoneda.convertir( "ARS",  "USD" , consulta, lectura);
                     break;
                 case 3:
-                    ConvertirMoneda.convertir(monedaBase: "USD", monedaTarget: "BRL" , consulta, lectura);
+                    ConvertirMoneda.convertir( "USD",  "BRL" , consulta, lectura);
                     break;
                 case 4:
-                    ConvertirMoneda.convertir(monedaBase: "BRL", monedaTarget: "USD" , consulta, lectura);
+                    ConvertirMoneda.convertir( "BRL",  "USD" , consulta, lectura);
                     break;
                 case 5:
-                    ConvertirMoneda.convertir(monedaBase: "USD", monedaTarget: "COP" , consulta, lectura);
+                    ConvertirMoneda.convertir( "USD", "COP" , consulta, lectura);
                     break;
                 case 6:
-                    ConvertirMoneda.convertir(monedaBase: "COP", monedaTarget: "USD" , consulta, lectura);
+                    ConvertirMoneda.convertir( "COP",  "USD" , consulta, lectura);
                     break;
                 case 7:
-                    System.out.println("Gracias por usar nuestro servicio de conversion de monedas, hasta pronto.");;
+                    System.out.println("Gracias por usar nuestro servicio de conversion de monedas, hasta pronto.");
                     break;
                 default:
                     System.out.println("Opción no válida.");

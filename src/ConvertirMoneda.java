@@ -1,24 +1,35 @@
 import java.util.Scanner;
 
 public class ConvertirMoneda {
-    public static  void convertir (String monedaBase, String monedaTarget, ConsultarMoneda consulta, Scanner lectura){
-    double cantidad;
-    double cantidadConvertida;
 
-    Moneda moneda = consulta.buscarmonedas(monedaBase,monedaTarget);
-        System.out.println("La tasa de cambio para el dia de hoy es\n " + monedaBase + "=" + moneda.conversion_rate() + " "+ monedaTarget);
-        System.out.println("ingrese la cantidad de " + monedaBase);
-        cantidad = Double.parseDouble(lectura.nextLine());
-        cantidadConvertida = cantidad * moneda.conversion_rate();
-        System.out.println(cantidad + " " + monedaBase + " " + cantidadConvertida + " " + moneda.target_code());
+    public static void convertir(double tasaCambio) {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.print("Ingrese la cantidad de USD: ");
+        String input = scanner.nextLine();
+
+        // Validar que el input no esté vacío
+        if (input.isEmpty()) {
+            System.out.println("Error: no se ha ingresado ninguna cantidad.");
+            return;
+        }
+
+        try {
+            double cantidadUSD = Double.parseDouble(input);
+            double cantidadBRL = cantidadUSD * tasaCambio;
+            System.out.println(cantidadUSD + " USD son " + cantidadBRL + " BRL.");
+        } catch (NumberFormatException e) {
+            System.out.println("Error: la cantidad ingresada no es un número válido.");
+        }
     }
-    public static void convertirOtraMoneda(ConsultarMoneda consulta, Scanner lectura){
-            System.out.println("ingrese el codigo de la moneda base: " );
-            String monedaBase = lectura.nextLine().toUpperCase();
-            System.out.println("ingrese la moneda objetivo:  " );
-            String monedaObjetivo = lectura.nextLine().toUpperCase();
-            convertir(monedaBase, monedaObjetivo, consulta, lectura);
 
+    public static void main(String[] args) {
+        double tasaCambio = 0.0; // Este valor debería ser actualizado según la tasa de cambio actual
+        System.out.println("La tasa de cambio para el día de hoy es USD=" + tasaCambio + " BRL");
+
+        convertir(tasaCambio);
+    }
+
+    public static void convertir(String ars, String usd, ConsultarMoneda consulta, Scanner lectura) {
     }
 }
